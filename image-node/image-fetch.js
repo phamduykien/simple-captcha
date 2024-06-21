@@ -8,23 +8,23 @@ const path = require('path');
 // });
 
 
-async function fetchImage(url, imagePath) {
-    const response = await axios.request({
-        method: 'GET',
-        url: url,
-        responseType: 'stream'
-    });
+// async function fetchImage(url, imagePath) {
+//     const response = await axios.request({
+//         method: 'GET',
+//         url: url,
+//         responseType: 'stream'
+//     });
 
-    const writer = fs.createWriteStream(path.resolve(__dirname, imagePath));
+//     const writer = fs.createWriteStream(path.resolve(__dirname, imagePath));
 
-    response.data.pipe(writer);
+//     response.data.pipe(writer);
 
-    return new Promise((resolve, reject) => {
-        writer.on('finish', resolve);
-        writer.on('error', reject);
-    });
-}
+//     return new Promise((resolve, reject) => {
+//         writer.on('finish', resolve);
+//         writer.on('error', reject);
+//     });
+// }
 
-fetchImage('http://gold.bidv.com.vn/DKNHDT/CaptchaServlet', 'image.jpg')
-    .then(() => console.log('Image downloaded successfully'))
-    .catch(err => console.error(err));
+// fetchImage('http://gold.bidv.com.vn/DKNHDT/CaptchaServlet', 'image.jpg')
+//     .then(() => console.log('Image downloaded successfully'))
+//     .catch(err => console.error(err));
